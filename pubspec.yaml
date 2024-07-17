@@ -71,6 +71,7 @@ flutter:
     - assets/promo2.jpg
     - assets/promo.jpg
     - assets/demSam.jpg
+    - assets/dark_mode_img.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

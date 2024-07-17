@@ -1,5 +1,6 @@
 import 'package:cadt_mobile_project/UI/account_page.dart';
 import 'package:cadt_mobile_project/UI/navigator_bar.dart';
+import 'package:cadt_mobile_project/UI/search_page.dart';
 import 'package:cadt_mobile_project/UI/shops_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,14 +17,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData(
-          primaryColor: Colors.pink,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+
+          // primaryColor: Colors.pink,
           useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 227, 55, 113)),
           navigationBarTheme: NavigationBarThemeData(
               labelTextStyle:
-                  MaterialStatePropertyAll(TextStyle(color: Colors.pink)))),
+                  MaterialStatePropertyAll(TextStyle(color: Colors.white10)))),
       debugShowCheckedModeBanner: false,
-      home: ShopsPage(),
+      home: NavigatorPage(),
     );
   }
 }

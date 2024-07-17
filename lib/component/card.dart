@@ -1,8 +1,10 @@
 import 'package:cadt_mobile_project/UI/order_page.dart';
+import 'package:cadt_mobile_project/provider/globalVariable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 Widget firstCard() {
+  final ChangeTheme onTurnDarkMode = Get.put(ChangeTheme());
   return Container(
     width: double.infinity,
     height: 210,
@@ -31,6 +33,10 @@ Widget firstCard() {
                 SizedBox(
                   width: 140,
                   child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: onTurnDarkMode.getDarkMode
+                              ? Colors.white
+                              : Colors.black),
                       onPressed: () {
                         Get.to(OrderPage());
                       },
