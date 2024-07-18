@@ -72,6 +72,9 @@ flutter:
     - assets/promo.jpg
     - assets/demSam.jpg
     - assets/dark_mode_img.jpg
+    - assets/pan_cake.jpg
+    - assets/fast_food.jpg
+    - assets/takoyaki.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

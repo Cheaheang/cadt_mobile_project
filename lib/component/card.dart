@@ -115,61 +115,99 @@ class YourClothWidget extends StatelessWidget {
   final String des;
   @override
   Widget build(BuildContext context) {
+    ChangeTheme turnOnDarkMode = Get.put(ChangeTheme());
     return Column(children: [
-      Card(
-          // color: Colors.green,
-          child: Column(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              img,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-              child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextWidget(
-                            text: title,
-                            size: 24,
-                            bold: FontWeight.bold,
-                          ),
-                          Row(
+      Container(
+        width: 350,
+        height: 480,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+              color: turnOnDarkMode.getDarkMode
+                  ? Colors.white
+                  : const Color.fromARGB(255, 55, 54, 54),
+              // color: Colors.green,
+              child: Column(
+                children: [
+                  FittedBox(
+                    fit: BoxFit.fill,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        img,
+                        fit: BoxFit.cover,
+                        height: 200,
+                        width: 340,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextWidget(
+                              text: title,
+                              size: 24,
+                              bold: FontWeight.bold,
+                              color: turnOnDarkMode.getDarkMode
+                                  ? Colors.black
+                                  : Colors.white,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.blueAccent,
+                                  size: 16,
+                                ),
+                                TextWidget(
+                                  text: rate.toString(),
+                                  bold: FontWeight.bold,
+                                  color: turnOnDarkMode.getDarkMode
+                                      ? Colors.black
+                                      : Colors.white,
+                                  size: 12,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 200,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(
-                                Icons.star,
-                                color: Colors.blueAccent,
-                                size: 16,
+                              TextWidget(
+                                text: des,
+                                size: 12,
+                                color: turnOnDarkMode.getDarkMode
+                                    ? Colors.black
+                                    : Colors.white,
                               ),
                               TextWidget(
-                                text: rate.toString(),
+                                text: "\$" + price.toString() + " Delivery fee",
+                                color: turnOnDarkMode.getDarkMode
+                                    ? Colors.black
+                                    : Colors.white,
                                 bold: FontWeight.bold,
                                 size: 12,
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                      TextWidget(
-                        text: des,
-                        size: 12,
-                      ),
-                      TextWidget(
-                        text: "\$" + price.toString() + " Delivery fee",
-                        bold: FontWeight.bold,
-                        size: 12,
-                      )
-                    ],
-                  )))
-        ],
-      )),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )),
+        ),
+      ),
     ]);
   }
 }
